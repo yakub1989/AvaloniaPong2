@@ -1,0 +1,27 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AvaloniaPong2.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Height="600"
+        Width="800"
+        x:Class="AvaloniaPong2.Views.MainWindow"
+        x:DataType="vm:PongViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="AvaloniaPong2">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:PongViewModel/>
+    </Design.DataContext>
+
+    <Canvas>
+        <Rectangle Width="10" Height="100" Fill="Gray" Canvas.Left="{Binding Paddle1X}" Canvas.Top="{Binding Paddle1Y}"/>
+        <Rectangle Width="10" Height="100" Fill="Gray" Canvas.Left="{Binding Paddle2X}" Canvas.Top="{Binding Paddle2Y}"/>
+        <Ellipse Width="10" Height="10" Fill="Gray" Canvas.Left="{Binding BallX}" Canvas.Top="{Binding BallY}"/>
+        <TextBlock FontSize="25" Canvas.Left="50" VerticalAlignment="Center" Canvas.Top="100" Text="{Binding ScorePLR2}"/>
+        <TextBlock FontSize="25" Canvas.Left="750" VerticalAlignment="Center" Canvas.Top="100" Text="{Binding ScorePLR1}"/>
+    </Canvas>
+</Window>
